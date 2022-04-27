@@ -1,0 +1,18 @@
+{
+  "editor.defaultFormatter": "esbenp.prettier-vscode", // Tell VSCode to use Prettier as default file formatter
+  "editor.formatOnSave": true, // Tell VSCode to format files on save
+  "editor.codeActionsOnSave": {
+    "source.fixAll": false,
+    "source.fixAll.eslint": true // Tell VSCode to auto fix our code with eslint
+  },
+  "cSpell.words": [],
+
+  // ESLint with Prettier
+  "eslint.alwaysShowStatus": true,
+  "eslint.validate": ["javascript"],
+
+  // Stylelint with Prettier
+  "css.validate": true,
+  "less.validate": true,
+  "scss.validate": true
+}
