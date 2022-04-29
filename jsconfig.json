@@ -3,19 +3,19 @@
     "baseUrl": ".",
     "paths": {
       "@api/*": ["pages/api/*"],
-      "@component/*": ["components/*"],
-      "@config/*": ["configs/*"],
-      "@constant/*": ["constants/*"],
-      "@constants": ["constants"],
-      "@container/*": ["containers/*"],
-      "@hook/*": ["hooks/*"],
-      "@icon/*": ["assets/icons/*"],
-      "@layout/*": ["layouts/*"],
-      "@locale/*": ["locales/*"],
-      "@redux/*": ["redux/*"],
-      "@route/*": ["routes/*"],
-      "@style/*": ["styles/*"],
-      "@util/*": ["utils/*"]
+      "@component/*": ["src/components/*"],
+      "@config/*": ["src/configs/*"],
+      "@constant/*": ["src/constants/*"],
+      "@constants": ["src/constants"],
+      "@container/*": ["src/containers/*"],
+      "@hook/*": ["src/hooks/*"],
+      "@icon/*": ["public/assets/icons/*"],
+      "@layout/*": ["src/layouts/*"],
+      "@locale/*": ["src/locales/*"],
+      "@redux/*": ["src/redux/*"],
+      "@route/*": ["src/routes/*"],
+      "@style/*": ["src/styles/*"],
+      "@util/*": ["src/utils/*"]
     }
   }
 }

@@ -1,6 +1,6 @@
 console.log('\n')
-console.log(`   ✅ PostCSS Config \n`)
-console.log(`   ----------- \n`)
+console.log('   ✅ PostCSS Config \n')
+console.log('   ----------- \n')
 
 module.exports = {
   plugins: {

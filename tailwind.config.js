@@ -2,8 +2,8 @@ const colors = require('tailwindcss/colors')
 const defaultTheme = require('tailwindcss/defaultTheme')
 
 console.log('\n')
-console.log(`   ✅ TailwindCSS Config \n`)
-console.log(`   ----------- \n`)
+console.log('   ✅ TailwindCSS Config \n')
+console.log('   ----------- \n')
 
 delete colors.lightBlue
 delete colors.warmGray
@@ -14,9 +14,8 @@ delete colors.blueGray
 module.exports = {
   mode: 'jit',
   content: [
-    './src/**/*.html',
-    './src/**/*.{js,jsx}',
-    './pages/**/*.{js,jsx}',
+    './src/**/*.{html,js,jsx}',
+    './pages/**/*.{html,js,jsx}',
   ],
   presets: [],
   darkMode: 'media', // or 'media' or 'class'
@@ -28,47 +27,35 @@ module.exports = {
     extend: {
       colors: {
         ...colors,
-        primary: {
-          disabled: '#bee3f8',
-          hover: '#63b3ed',
-          default: '#4299e1',
-          pressed: '#3182ce',
-        },
-        secondary: {
-          disabled: '#e2e8f0',
-          hover: '#cbd5e0',
-          default: '#a0aec0',
-          pressed: '#718096',
-        },
-        warning: {
-          disabled: '#faf089',
-          hover: '#f6e05e',
-          default: '#ecc94b',
-          pressed: '#d69e2e',
-        },
-        danger: {
-          disabled: '#feb2b2',
-          hover: '#fc8181',
-          default: '#f56565',
-          pressed: '#e53e3e',
-        },
-        info: {
-          disabled: '#81e6d9',
-          hover: '#4fd1c5',
-          default: '#38b2ac',
-          pressed: '#319795',
-        },
-        success: {
-          disabled: '#9ae6b4',
-          hover: '#68d391',
-          default: '#48bb78',
-          pressed: '#38a169',
-        },
+        orange: '#fa8c15',
+        skyblue: '#87cefa',
+        red: '#f44336',
+        primary: '#323a43',
+        secondary: '#38424B',
+        disabled: '#7A7F85',
+        base_bg: '#38424B',
+        card_bg: '#434F5A',
+        dark: '#242b30',
+        charcoal: '#343d45',
+        shadow: '#38424b',
+        lead: '#434f5a',
+        anchor: '#4b545c',
+        fossil: '#a1a1a1',
+        smoke: '#d9d9d9',
       },
-      transitionProperty: {
-        ...defaultTheme.transitionProperty,
-        width: 'width',
-        height: 'height',
+      width: {
+        ...defaultTheme.width,
+        sidebar: '280px',
+        right_sidebar: '370px',
+      },
+      height: {
+        ...defaultTheme.height,
+        navbar: '72px',
+        footer: '50px',
+      },
+      boxShadow: {
+        ...defaultTheme.boxShadow,
+        navbar: '0 0 4px 4px rgb(0 0 0 / 8%)'
       },
     },
   },

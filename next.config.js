@@ -1,8 +1,8 @@
 /** @type {import('next').NextConfig} */
 
 console.log('\n')
-console.log(`   ✅ NextJS Config \n`)
-console.log(`   ----------- \n`)
+console.log('   ✅ NextJS Config \n')
+console.log('   ----------- \n')
 
 const nextConfig = {
   webpack: (config) => {
