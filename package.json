@@ -2,6 +2,10 @@
   "name": "gu-ask-real-ideas",
   "version": "0.1.0",
   "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tanawat011/gu-ask-real-ideas"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",

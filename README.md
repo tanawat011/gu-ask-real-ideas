@@ -24,6 +24,9 @@ To learn more about Next.js, take a look at the following resources:
 
 - [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
 - [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- [Tailwindcss](https://tailwindcss.com/docs) - a utility-first CSS framework.
+- [Tailwindcss Playground](https://play.tailwindcss.com/) - a playground for Tailwindcss.
+- [Figma](https://www.figma.com/file/DYZO6lRheM5dKAzOREI3EI/Admin-theme?node-id=0%3A1) - a design system for Next.js.
 
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
