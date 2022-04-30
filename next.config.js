@@ -16,8 +16,8 @@ const nextConfig = {
   reactStrictMode: true,
   images: {
     loader: 'imgix',
-    path: 'https://tanawat.web.app/',
-    // path: 'http://localhost:3000/',
+    // path: 'https://tanawat.web.app/',
+    path: 'http://localhost:3000/',
   },
 }
 

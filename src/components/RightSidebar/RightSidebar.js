@@ -1,11 +1,13 @@
 import { useState, useEffect } from 'react'
 import Image from 'next/image'
 
+import { BackDrop } from '@component/Backdrop/Backdrop'
+
 import IconGear from '@icon/gear.png'
 
 export const RightSidebar = () => {
   const [displayRightSidebar, setDisplayRightSidebar] = useState('w-0')
-  const [displayBackdrop, setDisplayBackdrop] = useState('hidden')
+  const [isShowBackdrop, setIsShowBackdrop] = useState(false)
   const [isShowRightSidebar, setIsShowRightSidebar] = useState(false)
 
   useEffect(() => {
@@ -22,12 +24,12 @@ export const RightSidebar = () => {
   }
 
   const setRightSidebarClass = (isShow) => {
+    setIsShowBackdrop(isShow)
+
     if (isShow) {
       setDisplayRightSidebar('w-right_sidebar')
-      setDisplayBackdrop('block')
     } else {
       setDisplayRightSidebar('w-0')
-      setDisplayBackdrop('hidden')
     }
   }
 
@@ -43,7 +45,7 @@ export const RightSidebar = () => {
         </div>
       </div>
 
-      <div className={`fixed bg-black opacity-30 z-10 w-[100vw] h-[100vh] ${displayBackdrop}`} onClick={onClickBackdrop} />
+      <BackDrop isShowBackdrop={isShowBackdrop} onClickBackdrop={onClickBackdrop} />
     </>
   )
 }
