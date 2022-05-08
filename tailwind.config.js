@@ -61,7 +61,15 @@ module.exports = {
       fontFamily: {
         ...defaultTheme.fontFamily,
         noir_pro: ['Noir Pro', 'sans-serif'],
-      }
+      },
+      zIndex: {
+        ...defaultTheme.zIndex,
+        '10': 10, // General
+        '20': 20, // Backdrop
+        '30': 30, // Right Sidebar
+        '40': 40, // Modal
+        '50': 50, // Modal level 2
+      },
     },
   },
   variants: {

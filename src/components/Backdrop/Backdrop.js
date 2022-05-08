@@ -22,6 +22,6 @@ export const BackDrop = () => {
   }
 
   return (
-    <div className={`fixed bg-black opacity-30 z-10 w-[100vw] h-[100vh] ${displayBackdrop}`} onClick={handleClickBackdrop} />
+    <div className={`fixed bg-black opacity-30 z-20 w-[100vw] h-[100vh] ${displayBackdrop}`} onClick={handleClickBackdrop} />
   )
 }

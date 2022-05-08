@@ -31,7 +31,7 @@ export const RightSidebar = () => {
         <Image className='animate-spin' src={IconGear} alt='@icon/gear.png' width='20px' height='20px' />
       </button>
 
-      <div className={`fixed right-0 bg-white z-20 transition-all ease-out duration-300 ${displayRightSidebar}`}>
+      <div className={`fixed right-0 bg-white z-30 transition-all ease-out duration-300 ${displayRightSidebar}`}>
         <div className='flex justify-center items-center w-right_sidebar h-[100vh]'>
           Right Sidebar
         </div>
