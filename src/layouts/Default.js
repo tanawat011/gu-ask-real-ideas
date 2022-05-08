@@ -5,11 +5,14 @@ import { NavLogo } from '@component/NavLogo/NavLogo'
 import { RightSidebar } from '@component/RightSidebar/RightSidebar'
 import { Sidebar } from '@component/Sidebar/Sidebar'
 import { SidebarFooter } from '@component/SidebarFooter/SidebarFooter'
+import { BackDrop } from '@component/Backdrop/Backdrop'
 
 export const DefaultLayout = () => {
 
   return (
-    <div className='default-layout flex flex-col w-full h-full text-smoke'>
+    <div className='default-layout flex flex-col w-full h-full text-smoke font-noir_pro'>
+      <BackDrop />
+
       <RightSidebar />
 
       <div className='flex w-full'>

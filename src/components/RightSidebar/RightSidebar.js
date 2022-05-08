@@ -1,36 +1,28 @@
 import { useState, useEffect } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
 import Image from 'next/image'
 
-import { BackDrop } from '@component/Backdrop/Backdrop'
+import { openBackdrop, openRightSidebar } from '@redux/baseSlice'
 
 import IconGear from '@icon/gear.png'
 
 export const RightSidebar = () => {
+  const dispatch = useDispatch()
+  const isOpen = useSelector(state => state.base.isOpenRightSidebar)
+
   const [displayRightSidebar, setDisplayRightSidebar] = useState('w-0')
-  const [isShowBackdrop, setIsShowBackdrop] = useState(false)
-  const [isShowRightSidebar, setIsShowRightSidebar] = useState(false)
 
   useEffect(() => {
-    setRightSidebarClass(isShowRightSidebar)
-  }, [isShowRightSidebar])
-
-  const toggleRightSidebar = () => {
-    setIsShowRightSidebar(!isShowRightSidebar)
-  }
-
-  const onClickBackdrop = () => {
-    setIsShowRightSidebar(false)
-    setRightSidebarClass(false)
-  }
-
-  const setRightSidebarClass = (isShow) => {
-    setIsShowBackdrop(isShow)
-
-    if (isShow) {
+    if (isOpen) {
       setDisplayRightSidebar('w-right_sidebar')
     } else {
       setDisplayRightSidebar('w-0')
     }
+  }, [isOpen])
+
+  const toggleRightSidebar = () => {
+    dispatch(openBackdrop())
+    dispatch(openRightSidebar())
   }
 
   return (
@@ -44,8 +36,6 @@ export const RightSidebar = () => {
           Right Sidebar
         </div>
       </div>
-
-      <BackDrop isShowBackdrop={isShowBackdrop} onClickBackdrop={onClickBackdrop} />
     </>
   )
 }

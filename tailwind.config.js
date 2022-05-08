@@ -55,8 +55,13 @@ module.exports = {
       },
       boxShadow: {
         ...defaultTheme.boxShadow,
-        navbar: '0 0 4px 4px rgb(0 0 0 / 8%)'
+        navbar: '0 0 4px 4px rgb(0 0 0 / 8%)',
+        round: '0 0 4px 4px rgb(0 0 0 / 8%)',
       },
+      fontFamily: {
+        ...defaultTheme.fontFamily,
+        noir_pro: ['Noir Pro', 'sans-serif'],
+      }
     },
   },
   variants: {

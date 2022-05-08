@@ -8,6 +8,7 @@
       "@constant/*": ["src/constants/*"],
       "@constants": ["src/constants"],
       "@container/*": ["src/containers/*"],
+      "@flag/*": ["public/assets/flags/*"],
       "@hook/*": ["src/hooks/*"],
       "@icon/*": ["public/assets/icons/*"],
       "@layout/*": ["src/layouts/*"],

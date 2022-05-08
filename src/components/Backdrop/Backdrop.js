@@ -1,26 +1,27 @@
 import { useState, useEffect } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
 
-export const BackDrop = (props) => {
+import { closeBackdrop } from '@redux/baseSlice'
+
+export const BackDrop = () => {
+  const dispatch = useDispatch()
+  const isOpen = useSelector(state => state.base.isOpenBackdrop)
+
   const [displayBackdrop, setDisplayBackdrop] = useState('hidden')
 
   useEffect(() => {
-    setRightSidebarClass(props.isShowBackdrop)
-  }, [props.isShowBackdrop])
-
-  const onClickBackdrop = () => {
-    props.onClickBackdrop()
-    setRightSidebarClass(false)
-  }
-
-  const setRightSidebarClass = (isShow) => {
-    if (isShow) {
+    if (isOpen) {
       setDisplayBackdrop('block')
     } else {
       setDisplayBackdrop('hidden')
     }
+  }, [isOpen])
+
+  const handleClickBackdrop = () => {
+    dispatch(closeBackdrop())
   }
 
   return (
-    <div className={`fixed bg-black opacity-30 z-10 w-[100vw] h-[100vh] ${displayBackdrop}`} onClick={onClickBackdrop} />
+    <div className={`fixed bg-black opacity-30 z-10 w-[100vw] h-[100vh] ${displayBackdrop}`} onClick={handleClickBackdrop} />
   )
 }
