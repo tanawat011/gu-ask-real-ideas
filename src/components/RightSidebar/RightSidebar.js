@@ -27,7 +27,7 @@ export const RightSidebar = () => {
 
   return (
     <>
-      <button className='fixed right-0 top-[150px] z-10 w-10 h-10' onClick={toggleRightSidebar}>
+      <button className='fixed right-0 top-[150px] w-10 h-10' onClick={toggleRightSidebar}>
         <Image className='animate-spin' src={IconGear} alt='@icon/gear.png' width='20px' height='20px' />
       </button>
 

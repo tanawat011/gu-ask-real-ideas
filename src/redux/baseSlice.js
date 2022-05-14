@@ -1,10 +1,13 @@
 import { createSlice } from '@reduxjs/toolkit'
 
+import { langList } from '@data/langList'
+
 export const baseSlice = createSlice({
   name: 'test',
   initialState: {
     isOpenBackdrop: false,
     isOpenRightSidebar: false,
+    langList,
   },
   reducers: {
     openBackdrop: state => {
