@@ -12,6 +12,7 @@
       "@flag/*": ["public/assets/flags/*"],
       "@hook/*": ["src/hooks/*"],
       "@icon/*": ["public/assets/icons/*"],
+      "@image/*": ["public/assets/images/*"],
       "@layout/*": ["src/layouts/*"],
       "@locale/*": ["src/locales/*"],
       "@redux/*": ["src/redux/*"],
