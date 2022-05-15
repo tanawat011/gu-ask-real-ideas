@@ -1,4 +1,5 @@
 import FlagUS from '@flag/us.png'
+import FlagTH from '@flag/th.png'
 
 export const langList = [
   {
@@ -10,7 +11,7 @@ export const langList = [
   {
     label: 'Thai',
     value: 'th',
-    src: FlagUS,
+    src: FlagTH,
     alt: 'thai',
   },
 ]

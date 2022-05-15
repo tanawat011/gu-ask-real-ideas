@@ -20,13 +20,15 @@ export const InputGlobalSelectorLang = () => {
       currentSelected={currentLang}
       options={{
         hasBorder: true,
-        selectedWidth: '24px',
-        selectedHeight: '18px',
+        selectedImageWidth: '22px',
+        selectedImageHeight: '16px',
         selectedLabelClass: 'ml-2 mr-2 text-sm',
         arrowWidth: '12px',
         arrowHeight: '6px',
         menuClass: 'absolute w-40 bg-card_bg rounded px-4 py-3 shadow-round top-9 -right-0.5',
         itemClass: 'flex items-center cursor-pointer py-2',
+        itemImageWidth: '22px',
+        itemImageHeight: '16px',
         TriangleTopPx: 'top-[30px]',
         TriangleLeftPx: 'right-1',
       }}

@@ -24,8 +24,8 @@ export const InputSelectorProfile = () => {
       onClick={handleClickProfileItem}
       currentSelected={currentSelected}
       options={{
-        selectedWidth: '40px',
-        selectedHeight: '40px',
+        selectedImageWidth: '40px',
+        selectedImageHeight: '40px',
         selectedLabelClass: 'ml-4 mr-2 text-sm text-fossil',
         arrowWidth: '8px',
         arrowHeight: '4px',

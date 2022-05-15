@@ -17,13 +17,15 @@ export const InputSimpleSelector = (props) => {
     },
     options = {
       hasBorder: false,
-      selectedWidth: '16px',
-      selectedHeight: '16px',
+      selectedImageWidth: '',
+      selectedImageHeight: '',
       selectedLabelClass: '',
       arrowWidth: '8px',
       arrowHeight: '8px',
       menuClass: '',
       itemClass: '',
+      itemImageWidth: '',
+      itemImageHeight: '',
       TriangleTopPx: '',
       TriangleLeftPx: '',
     },
@@ -58,7 +60,7 @@ export const InputSimpleSelector = (props) => {
   return (
     <div id={id} className={`relative ${className}`}>
       <div className='flex items-center cursor-pointer' onClick={toggleSelector}>
-        <Image src={currentSelected.src} alt='selector' width={options.selectedWidth} height={options.selectedHeight} />
+        <Image src={currentSelected.src} alt='selector' width={options.selectedImageWidth} height={options.selectedImageHeight} />
 
         <span className={`${options.selectedLabelClass} select-none`}>{currentSelected.label}</span>
 
@@ -80,7 +82,7 @@ export const InputSimpleSelector = (props) => {
                 className={`${options.itemClass} ${border}`}
                 onClick={() => handleClickItem(item)}
               >
-                {item.src && <Image src={item.src} alt={item.alt} width='24px' height='18px' />}
+                {item.src && <Image src={item.src} alt={item.alt} width={options.itemImageWidth} height={options.itemImageHeight} />}
                 <span className={`text-sm select-none ${item.src && 'ml-2 mr-2'}`}>{item.label}</span>
               </li>
             )
