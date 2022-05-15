@@ -19,7 +19,7 @@ export const NavLogo = () => {
           onClick={toggleSidebar}
         />
 
-        <span className='text-base font-bold pl-5'>GuAskReal</span>
+        <span className='text-base font-bold pl-5 select-none'>GuAskReal</span>
       </div>
     </>
   )
