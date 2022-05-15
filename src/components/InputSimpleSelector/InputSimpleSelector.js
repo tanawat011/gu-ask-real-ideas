@@ -5,7 +5,7 @@ import { TriangleShape } from '@component/TriangleShape/TriangleShape'
 
 import IconArrow from '@icon/arrow.png'
 
-export const SimpleSelector = (props) => {
+export const InputSimpleSelector = (props) => {
   const {
     id,
     className = '',
@@ -65,7 +65,7 @@ export const SimpleSelector = (props) => {
         <Image src={IconArrow} alt='@icon/arrow.png' width={options.arrowWidth} height={options.arrowHeight} />
       </div>
 
-      <div className={`${options.menuClass} ${additionalClass}`}>
+      <div className={`z-10 ${options.menuClass} ${additionalClass}`}>
         <ul>
           {menuList.map((item, i) => {
             let border = ''

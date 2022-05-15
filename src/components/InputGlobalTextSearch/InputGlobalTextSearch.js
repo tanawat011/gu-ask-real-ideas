@@ -2,7 +2,7 @@ import Image from 'next/image'
 
 import IconSearch from '@icon/search.png'
 
-export const GlobalSearchInput = () => {
+export const InputGlobalTextSearch = () => {
   return (
     <div className='flex border rounded w-96 h-11 px-3 pr-5 bg-anchor'>
       <div className='flex items-center mr-4 w-5'>

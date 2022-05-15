@@ -40,6 +40,7 @@ module.exports = {
         shadow: '#38424b',
         lead: '#434f5a',
         anchor: '#4b545c',
+        slate: '#4e5c69',
         fossil: '#a1a1a1',
         smoke: '#d9d9d9',
       },
@@ -64,11 +65,11 @@ module.exports = {
       },
       zIndex: {
         ...defaultTheme.zIndex,
-        '10': 10, // General
+        '10': 10, // Tooltip, Dropdown, Selector card
         '20': 20, // Backdrop
         '30': 30, // Right Sidebar
         '40': 40, // Modal
-        '50': 50, // Modal level 2
+        '50': 50, // Notification
       },
     },
   },

@@ -1,9 +1,9 @@
 import { useState } from 'react'
 import { useSelector } from 'react-redux'
 
-import { SimpleSelector } from '@component/SimpleSelector/SimpleSelector'
+import { InputSimpleSelector } from '@component/InputSimpleSelector/InputSimpleSelector'
 
-export const GlobalLangInput = () => {
+export const InputGlobalSelectorLang = () => {
   const langList = useSelector(state => state.base.langList)
 
   const [currentLang, setCurrentLang] = useState(langList[0])
@@ -13,7 +13,7 @@ export const GlobalLangInput = () => {
   }
 
   return (
-    <SimpleSelector
+    <InputSimpleSelector
       id='global-lang-input'
       menuList={langList}
       onClick={handleChangeLang}
