@@ -88,7 +88,7 @@ export const InputSimpleSelector = (props) => {
         </ul>
       </div>
 
-      <TriangleShape additionalClass={additionalClass} topPx={options.TriangleTopPx} leftPx={options.TriangleLeftPx} />
+      <TriangleShape additionalClass={`z-[15] ${additionalClass}`} topPx={options.TriangleTopPx} leftPx={options.TriangleLeftPx} />
     </div>
   )
 }

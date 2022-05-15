@@ -29,10 +29,10 @@ export const InputSelectorProfile = () => {
         selectedLabelClass: 'ml-4 mr-2 text-sm text-fossil',
         arrowWidth: '8px',
         arrowHeight: '4px',
-        menuClass: 'absolute w-40 bg-card_bg rounded py-2 shadow-round top-12 left-1',
+        menuClass: 'absolute w-36 bg-card_bg rounded py-2 shadow-round top-12 left-1',
         itemClass: 'flex items-center cursor-pointer py-0.5 px-4 hover:bg-slate',
         TriangleTopPx: 'top-[42px]',
-        TriangleLeftPx: 'left-[144px]',
+        TriangleLeftPx: 'left-[126px]',
       }}
     />
   )
