@@ -22,3 +22,23 @@ a {
 }
 
 @import './reset.scss';
+
+@for $i from 1 through 20 {
+  .sidebar-menu-item-h-#{$i} {
+    height: calc(#{$i} * 40px);
+  }
+}
+
+::-webkit-scrollbar {
+  -webkit-appearance: none;
+  width: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 6px;
+  background-color: #242b30;
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}

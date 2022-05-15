@@ -58,6 +58,11 @@ module.exports = {
         ...defaultTheme.boxShadow,
         navbar: '0 0 4px 4px rgb(0 0 0 / 8%)',
         round: '0 0 4px 4px rgb(0 0 0 / 8%)',
+        t: '0 -4px 4px 0 rgb(0 0 0 / 8%)',
+        tr: '4px -4px 4px 0 rgb(0 0 0 / 8%)',
+        b: '0 4px 4px 0 rgb(0 0 0 / 8%)',
+        l: '-4px 0 4px 0 rgb(0 0 0 / 8%)',
+        r: '4px 0 4px 0 rgb(0 0 0 / 8%)',
       },
       fontFamily: {
         ...defaultTheme.fontFamily,

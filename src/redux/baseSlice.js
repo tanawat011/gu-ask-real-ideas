@@ -2,6 +2,7 @@ import { createSlice } from '@reduxjs/toolkit'
 
 import { langList } from '@data/langList'
 import { profileMenuList } from '@data/profileMenuList'
+import { sidebarMenuList } from '@data/sidebarMenuList'
 
 export const baseSlice = createSlice({
   name: 'test',
@@ -10,6 +11,7 @@ export const baseSlice = createSlice({
     isOpenRightSidebar: false,
     langList,
     profileMenuList,
+    sidebarMenuList,
   },
   reducers: {
     openBackdrop: state => {

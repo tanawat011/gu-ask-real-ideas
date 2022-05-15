@@ -12,21 +12,21 @@ export const SidebarQuickIcon = () => {
   const handleClickEmail = () => console.log('Email')
 
   return (
-    <div className='flex justify-between items-center'>
+    <div className='flex justify-between items-center mx-1'>
       <a className='cursor-pointer' onClick={handleClickNoti}>
-        <Image src={IconNoti} alt='@icon/notification.png' width='20px' height='24px' />
+        <Image src={IconNoti} alt='@icon/notification.png' width='16px' height='20px' />
       </a>
 
       <a className='cursor-pointer' onClick={handleClickChat}>
-        <Image src={IconChat} alt='@icon/chat.png' width='20px' height='20px' />
+        <Image src={IconChat} alt='@icon/chat.png' width='18px' height='18px' />
       </a>
 
       <a className='cursor-pointer' onClick={handleClickBug}>
-        <Image src={IconBug} alt='@icon/bug.png' width='20px' height='20px' />
+        <Image src={IconBug} alt='@icon/bug.png' width='18px' height='18px' />
       </a>
 
       <a className='cursor-pointer' onClick={handleClickEmail}>
-        <Image src={IconEmail} alt='@icon/email.png' width='24px' height='18px' />
+        <Image src={IconEmail} alt='@icon/email.png' width='22px' height='16px' />
       </a>
     </div>
   )

@@ -60,7 +60,7 @@ export const InputSimpleSelector = (props) => {
       <div className='flex items-center cursor-pointer' onClick={toggleSelector}>
         <Image src={currentSelected.src} alt='selector' width={options.selectedWidth} height={options.selectedHeight} />
 
-        <span className={options.selectedLabelClass}>{currentSelected.label}</span>
+        <span className={`${options.selectedLabelClass} select-none`}>{currentSelected.label}</span>
 
         <Image src={IconArrow} alt='@icon/arrow.png' width={options.arrowWidth} height={options.arrowHeight} />
       </div>
@@ -81,7 +81,7 @@ export const InputSimpleSelector = (props) => {
                 onClick={() => handleClickItem(item)}
               >
                 {item.src && <Image src={item.src} alt={item.alt} width='24px' height='18px' />}
-                <span className={`text-sm ${item.src && 'ml-2 mr-2'}`}>{item.label}</span>
+                <span className={`text-sm select-none ${item.src && 'ml-2 mr-2'}`}>{item.label}</span>
               </li>
             )
           })}

@@ -9,7 +9,7 @@ export const NavLogo = () => {
 
   return (
     <>
-      <div className='flex items-center w-sidebar h-navbar bg-dark p-9'>
+      <div className='flex items-center w-sidebar h-navbar bg-dark p-9 shadow-b'>
         <Image
           className='cursor-pointer'
           src={IconCollapseSidebar}
