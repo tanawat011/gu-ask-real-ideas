@@ -5,6 +5,7 @@ import {
   faLevelUp,
   faTable,
   faBorderAll,
+  faBook,
 } from '@fortawesome/free-solid-svg-icons'
 
 const Apps = [
@@ -48,6 +49,20 @@ const ContainerLayout = [
   {
     label: 'Card',
     icon: faTable,
+  },
+]
+
+const Docs = [
+  {
+    label: 'Docs',
+  },
+  {
+    label: 'JavaScript',
+    icon: faBook,
+  },
+  {
+    label: 'TypeScript',
+    icon: faBook,
   },
 ]
 
@@ -135,5 +150,6 @@ export const sidebarMenuList = [
   },
   ...Apps,
   ...ContainerLayout,
+  ...Docs,
   ...Level,
 ]
