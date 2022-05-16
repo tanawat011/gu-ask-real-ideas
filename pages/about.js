@@ -1,10 +1,10 @@
 import { DefaultLayout } from '@root/src/layouts/DefaultLayout'
 
-export default function Index () {
-  return (<>Dashboard</>)
+export default function About () {
+  return (<>About</>)
 }
 
-Index.getLayout = function getLayout (page) {
+About.getLayout = function getLayout (page) {
   return (
     <DefaultLayout>
       {page}

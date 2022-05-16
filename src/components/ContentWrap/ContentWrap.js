@@ -1,4 +1,3 @@
-import { Children } from 'react'
 
 export const ContentWrap = ({ children }) => {
   return (

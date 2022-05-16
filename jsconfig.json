@@ -17,7 +17,6 @@
       "@layout/*": ["src/layouts/*"],
       "@locale/*": ["src/locales/*"],
       "@redux/*": ["src/redux/*"],
-      "@route/*": ["src/routes/*"],
       "@style/*": ["src/styles/*"],
       "@util/*": ["src/utils/*"]
     }

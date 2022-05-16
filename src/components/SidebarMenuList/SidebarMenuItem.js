@@ -1,5 +1,6 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons'
+import Link from 'next/link'
 import { useEffect, useState } from 'react'
 
 export const SidebarMenuItem = (props) => {
@@ -32,7 +33,6 @@ export const SidebarMenuItem = (props) => {
 
     if (!menuItem.children) {
       onClick()
-      console.log(menuItem.label)
     }
   }
 
@@ -50,38 +50,61 @@ export const SidebarMenuItem = (props) => {
     }
   }
 
+  const RenderContent = () => (
+    <>
+      {menuItem.children && level < 3 && (
+        <div className={`absolute -left-5 ${level === 2 && 'opacity-50'}`}>
+          <FontAwesomeIcon
+            className={`transition-all ease-out duration-300 ${menuItem.isSelected && 'rotate-180'}`}
+            icon={faChevronDown} size='xs'
+          />
+        </div>
+      )}
+
+      {level < 3
+        ? (
+          <div>
+            <FontAwesomeIcon className='w-5 h-5' icon={menuItem.icon} size='lg' />
+          </div>
+        )
+        : (
+          <div className='w-5' />
+        )
+      }
+
+      <span
+        className={`text-sm select-none ${handleLabelIsChild()}`}
+      >
+        {menuItem.label}
+      </span>
+    </>
+  )
+
   return (
     <li>
-      <div
-        className={`flex h-10 items-center cursor-pointer hover:text-orange transition-all ease-out duration-300 relative ${handleItemIsChild()}`}
-        onClick={handleClickItem}
-      >
-        {menuItem.children && level < 3 && (
-          <div className={`absolute -left-5 ${level === 2 && 'opacity-50'}`}>
-            <FontAwesomeIcon
-              className={`transition-all ease-out duration-300 ${menuItem.isSelected && 'rotate-180'}`}
-              icon={faChevronDown} size='xs'
-            />
+      {!menuItem.href
+        ? (
+          <div
+            className={`flex h-10 items-center cursor-pointer hover:text-orange transition-all ease-out duration-300 relative ${handleItemIsChild()}`}
+            onClick={handleClickItem}
+          >
+            <RenderContent />
           </div>
-        )}
-
-        {level < 3
-          ? (
-            <div>
-              <FontAwesomeIcon className='w-5 h-5' icon={menuItem.icon} size='lg' />
+        )
+        : (
+          <Link
+            passHref
+            href={menuItem.href}
+          >
+            <div
+              className={`flex h-10 items-center cursor-pointer hover:text-orange transition-all ease-out duration-300 relative ${handleItemIsChild()}`}
+              onClick={handleClickItem}
+            >
+              <RenderContent />
             </div>
-          )
-          : (
-            <div className='w-5' />
-          )
-        }
-
-        <span
-          className={`text-sm select-none ${handleLabelIsChild()}`}
-        >
-          {menuItem.label}
-        </span>
-      </div>
+          </Link>
+        )
+      }
 
       {menuItem.children && level < 3 && (
         <ul className={`transition-all ease-out duration-900 overflow-hidden ${menuItem.isSelected ? `${wrapChildrenHeight}` : 'h-0'}`}>

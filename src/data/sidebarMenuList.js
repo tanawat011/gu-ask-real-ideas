@@ -1,14 +1,8 @@
 import {
-  faGauge,
-  faCoffee,
-  faAnchor,
-  faPager,
-  faAddressBook,
   faCalculator,
   faTools,
-  faBiohazard,
-  faCalendar,
   faDashboard,
+  faLevelUp,
 } from '@fortawesome/free-solid-svg-icons'
 
 export const sidebarMenuList = [
@@ -18,29 +12,17 @@ export const sidebarMenuList = [
   {
     label: 'Dashboard',
     icon: faDashboard,
+    href: '/',
   },
   {
-    label: 'Coffee',
-    icon: faCoffee,
-    isSelected: false,
-    children: [
-      {
-        label: 'Capuchino',
-        icon: faPager,
-      },
-      {
-        label: 'Main',
-        icon: faPager,
-      },
-      {
-        label: 'Americano',
-        icon: faAddressBook,
-      },
-    ],
+    label: 'About',
+    icon: faDashboard,
+    href: '/about',
   },
   {
-    label: 'Anchor',
-    icon: faAnchor,
+    label: 'Contact',
+    icon: faDashboard,
+    href: '/contact',
   },
   {
     label: 'Apps',
@@ -54,60 +36,42 @@ export const sidebarMenuList = [
     icon: faCalculator,
   },
   {
-    label: 'Planner',
-    icon: faGauge,
+    label: 'Level',
+  },
+  {
+    label: 'Level 1',
+    icon: faLevelUp,
+  },
+  {
+    label: 'Level 1 C',
+    icon: faLevelUp,
     children: [
       {
-        label: 'Document',
-        icon: faBiohazard,
+        label: 'Level 2',
+        icon: faLevelUp,
       },
       {
-        label: 'Calendar',
-        icon: faCalendar,
+        label: 'Level 2 c',
+        icon: faLevelUp,
         children: [
           {
-            label: 'Monthly',
-            icon: faBiohazard,
+            label: 'Level 3',
+            icon: faLevelUp,
           },
           {
-            label: 'Daily',
-            icon: faCalendar,
+            label: 'Level 3 c',
+            icon: faLevelUp,
           },
         ],
       },
       {
-        label: 'Calendar',
-        icon: faCalendar,
-        children: [
-          {
-            label: 'Monthly',
-            icon: faBiohazard,
-          },
-        ],
+        label: 'Level 2',
+        icon: faLevelUp,
       },
     ],
   },
   {
-    label: 'Dashboard',
-    icon: faDashboard,
-  },
-  {
-    label: 'Coffee',
-    icon: faCoffee,
-    isSelected: false,
-    children: [
-      {
-        label: 'Capuchino',
-        icon: faPager,
-      },
-      {
-        label: 'Main',
-        icon: faPager,
-      },
-      {
-        label: 'Americano',
-        icon: faAddressBook,
-      },
-    ],
+    label: 'Level 1',
+    icon: faLevelUp,
   },
 ]
