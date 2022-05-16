@@ -29,16 +29,15 @@ a {
   }
 }
 
-::-webkit-scrollbar {
+*::-webkit-scrollbar,
+*::-webkit-scrollbar-thumb {
   -webkit-appearance: none;
-  width: 6px;
+  width: 12px;
+  border-radius: 13px;
+  background-clip: padding-box;
+  border: 3px solid transparent;
 }
 
-::-webkit-scrollbar-thumb {
-  border-radius: 6px;
-  background-color: #242b30;
-}
-
-::-webkit-scrollbar-track {
-  background-color: transparent;
+*::-webkit-scrollbar-thumb {
+  background-color: #242b3099;
 }
