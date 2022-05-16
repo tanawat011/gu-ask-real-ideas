@@ -11,7 +11,7 @@ export const Sidebar = () => {
         <SidebarQuickIcon />
       </div>
 
-      <div className='flex h-full overflow-y-scroll mr-1'>
+      <div className='flex h-full' style={{ overflow: 'overlay' }}>
         <SidebarMenuList />
       </div>
     </div >

@@ -19,14 +19,6 @@ const nextConfig = {
     // path: 'https://tanawat.web.app/',
     path: 'http://localhost:3000/',
   },
-  async rewrites () {
-    return [
-      {
-        source: '/:any*',
-        destination: '/',
-      },
-    ];
-  },
 }
 
 module.exports = nextConfig

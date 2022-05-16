@@ -1,6 +1,6 @@
 {
   "name": "gu-ask-real-ideas",
-  "version": "0.6.0",
+  "version": "0.6.2",
   "private": true,
   "repository": {
     "type": "git",
@@ -11,7 +11,12 @@
     "build": "next build",
     "export": "next export",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "disable:tag-auto": "yarn config set version-git-tag false",
+    "v:major": "yarn disable:tag-auto && yarn version --major",
+    "v:minor": "yarn disable:tag-auto && yarn version --minor",
+    "v:patch": "yarn disable:tag-auto && yarn version --patch",
+    "v:prerelease": "yarn disable:tag-auto && yarn version --prerelease"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.1.1",

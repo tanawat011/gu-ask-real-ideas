@@ -12,6 +12,7 @@ export const baseSlice = createSlice({
     langList,
     profileMenuList,
     sidebarMenuList,
+    sidebarMenuSelectedIndexes: [],
   },
   reducers: {
     openBackdrop: state => {
@@ -27,9 +28,18 @@ export const baseSlice = createSlice({
     closeRightSidebar: state => {
       state.isOpenRightSidebar = false
     },
+    setMenuSelectedIndexes: (state, action) => {
+      state.sidebarMenuSelectedIndexes = action.payload
+    },
   },
 })
 
-export const { closeBackdrop, openBackdrop, closeRightSidebar, openRightSidebar } = baseSlice.actions
+export const {
+  closeBackdrop,
+  openBackdrop,
+  closeRightSidebar,
+  openRightSidebar,
+  setMenuSelectedIndexes,
+} = baseSlice.actions
 
 export default baseSlice.reducer
