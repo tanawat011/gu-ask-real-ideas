@@ -6,5 +6,6 @@ export const profileMenuList = [
   {
     label: 'Logout',
     value: 'logout',
+    href: '/login',
   },
 ]

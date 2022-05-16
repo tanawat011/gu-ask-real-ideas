@@ -14,7 +14,7 @@ export const InputSelectorProfile = () => {
     label: 'Ta Tanawat',
   })
 
-  const handleClickProfileItem = (item) => console.log(item)
+  const handleClickProfileItem = (item) => { }
 
   return (
     <InputSimpleSelector

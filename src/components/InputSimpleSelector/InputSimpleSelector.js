@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 
 import { TriangleShape } from '@component/TriangleShape/TriangleShape'
 
@@ -36,7 +37,7 @@ export const InputSimpleSelector = (props) => {
 
   if (typeof window !== 'undefined') {
     document.addEventListener('click', (e) => {
-      if (isOpenMenu && !document.getElementById(id).contains(e.target)) {
+      if (isOpenMenu && !document.getElementById(id)?.contains(e.target)) {
         setAdditionalClass('hidden')
         setIsOpenMenu(false)
       }
@@ -76,16 +77,31 @@ export const InputSimpleSelector = (props) => {
               border = i > 0 ? ' border-t border-solid border-anchor' : ''
             }
 
-            return (
-              <li
-                key={item.value}
-                className={`${options.itemClass} ${border}`}
-                onClick={() => handleClickItem(item)}
-              >
-                {item.src && <Image src={item.src} alt={item.alt} width={options.itemImageWidth} height={options.itemImageHeight} />}
-                <span className={`text-sm select-none ${item.src && 'ml-2 mr-2'}`}>{item.label}</span>
-              </li>
-            )
+            return item.href
+              ? (
+                <Link key={item.value} passHref href={item.href}>
+                  <div>
+                    <li
+                      key={item.value}
+                      className={`${options.itemClass} ${border}`}
+                      onClick={() => handleClickItem(item)}
+                    >
+                      {item.src && <Image src={item.src} alt={item.alt} width={options.itemImageWidth} height={options.itemImageHeight} />}
+                      <span className={`text-sm select-none ${item.src && 'ml-2 mr-2'}`}>{item.label}</span>
+                    </li>
+                  </div>
+                </Link>
+              )
+              : (
+                <li
+                  key={item.value}
+                  className={`${options.itemClass} ${border}`}
+                  onClick={() => handleClickItem(item)}
+                >
+                  {item.src && <Image src={item.src} alt={item.alt} width={options.itemImageWidth} height={options.itemImageHeight} />}
+                  <span className={`text-sm select-none ${item.src && 'ml-2 mr-2'}`}>{item.label}</span>
+                </li>
+              )
           })}
         </ul>
       </div>
