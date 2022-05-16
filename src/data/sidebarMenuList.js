@@ -3,55 +3,11 @@ import {
   faTools,
   faDashboard,
   faLevelUp,
+  faTable,
+  faBorderAll,
 } from '@fortawesome/free-solid-svg-icons'
 
-export const sidebarMenuList = [
-  {
-    label: 'Main',
-  },
-  {
-    label: 'Dashboard',
-    icon: faDashboard,
-    isExpended: false,
-    children: [
-      {
-        label: 'Main',
-        icon: faDashboard,
-        isSelected: false,
-        href: '/dashboard'
-      },
-      {
-        label: 'Crypto',
-        icon: faDashboard,
-        isSelected: false,
-        href: '/dashboard/crypto'
-      },
-      {
-        label: 'Stock',
-        icon: faDashboard,
-        isSelected: false,
-        href: '/dashboard/stock'
-      },
-      {
-        label: 'Wallet',
-        icon: faDashboard,
-        isSelected: false,
-        href: '/dashboard/wallet'
-      },
-    ],
-  },
-  {
-    label: 'About',
-    icon: faDashboard,
-    isSelected: false,
-    href: '/about',
-  },
-  {
-    label: 'Contact',
-    icon: faDashboard,
-    isSelected: false,
-    href: '/contact',
-  },
+const Apps = [
   {
     label: 'Apps',
   },
@@ -62,19 +18,15 @@ export const sidebarMenuList = [
   {
     label: 'Calculate',
     icon: faCalculator,
-    isSelected: false,
-    isExpended: false,
     children: [
       {
         label: 'Calculator',
         icon: faCalculator,
-        isSelected: false,
         href: '/calculate',
       },
       {
         label: 'Profit/Loss',
         icon: faDashboard,
-        isSelected: false,
         href: '/calculate/profit-loss'
       },
     ],
@@ -82,53 +34,106 @@ export const sidebarMenuList = [
   {
     label: 'Convertor',
     icon: faCalculator,
-    isSelected: false,
   },
+]
+
+const ContainerLayout = [
+  {
+    label: 'Container Layout',
+  },
+  {
+    label: 'Full Page',
+    icon: faBorderAll,
+  },
+  {
+    label: 'Card',
+    icon: faTable,
+  },
+]
+
+const Level = [
   {
     label: 'Level',
   },
   {
     label: 'Level 1',
     icon: faLevelUp,
-    isSelected: false,
   },
   {
     label: 'Level 1 C',
     icon: faLevelUp,
-    isExpended: false,
     children: [
       {
         label: 'Level 2',
         icon: faLevelUp,
-        isSelected: false,
       },
       {
         label: 'Level 2 c',
         icon: faLevelUp,
-        isExpended: false,
         children: [
           {
             label: 'Level 3',
             icon: faLevelUp,
-            isSelected: false,
           },
           {
             label: 'Level 3 c',
             icon: faLevelUp,
-            isSelected: false,
           },
         ],
       },
       {
         label: 'Level 2',
         icon: faLevelUp,
-        isSelected: false,
       },
     ],
   },
   {
     label: 'Level 1',
     icon: faLevelUp,
-    isSelected: false,
   },
+]
+
+export const sidebarMenuList = [
+  {
+    label: 'Main',
+  },
+  {
+    label: 'Dashboard',
+    icon: faDashboard,
+    children: [
+      {
+        label: 'Main',
+        icon: faDashboard,
+        href: '/dashboard'
+      },
+      {
+        label: 'Crypto',
+        icon: faDashboard,
+        href: '/dashboard/crypto'
+      },
+      {
+        label: 'Stock',
+        icon: faDashboard,
+        href: '/dashboard/stock'
+      },
+      {
+        label: 'Wallet',
+        icon: faDashboard,
+        href: '/dashboard/wallet'
+      },
+    ],
+  },
+  {
+    label: 'About',
+    icon: faDashboard,
+    href: '/about',
+  },
+  {
+    label: 'Contact',
+    icon: faDashboard,
+    href: '/contact',
+  },
+  ...Apps,
+  ...ContainerLayout,
+  ...Level,
 ]
