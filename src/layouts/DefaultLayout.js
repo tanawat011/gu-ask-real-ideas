@@ -1,3 +1,4 @@
+import clsx from 'clsx'
 import Head from 'next/head'
 
 import { ContentWrap } from '@component/ContentWrap/ContentWrap'
@@ -9,8 +10,29 @@ import { Sidebar } from '@component/Sidebar/Sidebar'
 import { SidebarFooter } from '@component/SidebarFooter/SidebarFooter'
 import { BackDrop } from '@component/Backdrop/Backdrop'
 
-export const DefaultLayout = ({ children }) => {
+const twWrapLayout = clsx(
+  'default-layout',
+  'flex',
+  'flex-col',
+  'w-full',
+  'h-full',
+  'text-smoke',
+  'font-noir_pro',
+)
+const twFullW = clsx('flex', 'w-full')
+const twColFullH = clsx(
+  'flex',
+  'flex-col',
+  'h-full',
+)
+const twColFull = clsx(
+  'flex',
+  'flex-col',
+  'w-full',
+  'h-full',
+)
 
+export const DefaultLayout = ({ children }) => {
   return (
     <>
       <Head>
@@ -18,23 +40,23 @@ export const DefaultLayout = ({ children }) => {
         <meta name='viewport' content='initial-scale=1.0, width=device-width' />
       </Head>
 
-      <div className='default-layout flex flex-col w-full h-full text-smoke font-noir_pro'>
+      <div className={twWrapLayout}>
         <BackDrop />
 
         <RightSidebar />
 
-        <div className='flex w-full'>
+        <div className={twFullW}>
           <NavLogo />
           <Navbar />
         </div>
 
-        <div className='flex w-full'>
-          <div className='flex flex-col h-full'>
+        <div className={twFullW}>
+          <div className={twColFullH}>
             <Sidebar />
             <SidebarFooter />
           </div>
 
-          <div className='flex flex-col w-full h-full'>
+          <div className={twColFull}>
             <ContentWrap>
               {children}
             </ContentWrap>

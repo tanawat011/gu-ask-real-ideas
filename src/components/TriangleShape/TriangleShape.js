@@ -1,4 +1,18 @@
-const triangleShape = 'border-solid border-b-8 border-x-transparent border-x-8 border-t-0'
+import clsx from 'clsx'
+
+const twTriangleShape = () => clsx(
+  'border-solid',
+  'border-b-8',
+  'border-x-transparent',
+  'border-x-8',
+  'border-t-0',
+)
+const twTriangle = (additional) => clsx(
+  'absolute',
+  'border-b-card_bg',
+  twTriangleShape(),
+  additional,
+)
 
 export const TriangleShape = (props) => {
   const {
@@ -7,7 +21,9 @@ export const TriangleShape = (props) => {
     leftPx = '',
   } = props
 
+  const twtwTriangleClass = twTriangle([topPx, leftPx, additionalClass])
+
   return (
-    <div className={`absolute ${topPx} ${leftPx} border-b-card_bg ${triangleShape} ${additionalClass}`} />
+    <div className={twtwTriangleClass} />
   )
 }

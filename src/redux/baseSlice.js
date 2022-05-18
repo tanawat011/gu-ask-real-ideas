@@ -1,6 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 import { langList } from '@data/langList'
+import { quickIconList } from '@data/quickIconList'
 import { profileMenuList } from '@data/profileMenuList'
 import { sidebarMenuList } from '@data/sidebarMenuList'
 
@@ -10,6 +11,7 @@ export const baseSlice = createSlice({
     isOpenBackdrop: false,
     isOpenRightSidebar: false,
     langList,
+    quickIconList,
     profileMenuList,
     sidebarMenuList,
     sidebarMenuSelectedIndexes: [],

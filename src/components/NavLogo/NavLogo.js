@@ -1,6 +1,23 @@
+import clsx from 'clsx'
 import Image from 'next/image'
 
 import IconCollapseSidebar from '@icon/collapse-sidebar.png'
+
+const twWrapLogo = clsx(
+  'flex',
+  'items-center',
+  'w-sidebar',
+  'h-navbar',
+  'bg-dark',
+  'p-9',
+  'shadow-b',
+)
+const twLogo = clsx(
+  'text-base',
+  'font-bold',
+  'pl-5',
+  'select-none',
+)
 
 export const NavLogo = () => {
   const toggleSidebar = () => {
@@ -9,7 +26,7 @@ export const NavLogo = () => {
 
   return (
     <>
-      <div className='flex items-center w-sidebar h-navbar bg-dark p-9 shadow-b'>
+      <div className={twWrapLogo}>
         <Image
           className='cursor-pointer'
           src={IconCollapseSidebar}
@@ -19,7 +36,7 @@ export const NavLogo = () => {
           onClick={toggleSidebar}
         />
 
-        <span className='text-base font-bold pl-5 select-none'>GuAskReal</span>
+        <span className={twLogo}>GuAskReal</span>
       </div>
     </>
   )

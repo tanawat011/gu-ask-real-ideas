@@ -1,7 +1,26 @@
+import clsx from 'clsx'
 import { useState } from 'react'
 import { useSelector } from 'react-redux'
 
 import { InputSimpleSelector } from '@component/InputSimpleSelector/InputSimpleSelector'
+
+const twSelectorLangMenu = clsx(
+  'absolute',
+  'w-40',
+  'bg-card_bg',
+  'rounded',
+  'px-4',
+  'py-3',
+  'shadow-round',
+  'top-9',
+  '-right-0.5',
+)
+const twSelectorLangItem = clsx(
+  'flex',
+  'items-center',
+  'cursor-pointer',
+  'py-2',
+)
 
 export const InputGlobalSelectorLang = () => {
   const langList = useSelector(state => state.base.langList)
@@ -25,8 +44,8 @@ export const InputGlobalSelectorLang = () => {
         selectedLabelClass: 'ml-2 mr-2 text-sm',
         arrowWidth: '12px',
         arrowHeight: '6px',
-        menuClass: 'absolute w-40 bg-card_bg rounded px-4 py-3 shadow-round top-9 -right-0.5',
-        itemClass: 'flex items-center cursor-pointer py-2',
+        menuClass: twSelectorLangMenu,
+        itemClass: twSelectorLangItem,
         itemImageWidth: '22px',
         itemImageHeight: '16px',
         TriangleTopPx: 'top-[30px]',

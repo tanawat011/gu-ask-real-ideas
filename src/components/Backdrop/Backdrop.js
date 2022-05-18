@@ -1,7 +1,18 @@
+import clsx from 'clsx'
 import { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 
 import { closeBackdrop } from '@redux/baseSlice'
+
+const twBackdrop = (additional) => clsx(
+  'fixed',
+  'bg-black',
+  'opacity-30',
+  'z-20',
+  'w-[100vw]',
+  'h-[100vh]',
+  additional,
+)
 
 export const BackDrop = () => {
   const dispatch = useDispatch()
@@ -22,6 +33,6 @@ export const BackDrop = () => {
   }
 
   return (
-    <div className={`fixed bg-black opacity-30 z-20 w-[100vw] h-[100vh] ${displayBackdrop}`} onClick={handleClickBackdrop} />
+    <div className={twBackdrop(displayBackdrop)} onClick={handleClickBackdrop} />
   )
 }

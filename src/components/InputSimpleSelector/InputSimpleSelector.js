@@ -1,3 +1,4 @@
+import clsx from 'clsx'
 import { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -5,6 +6,17 @@ import Link from 'next/link'
 import { TriangleShape } from '@component/TriangleShape/TriangleShape'
 
 import IconArrow from '@icon/arrow.png'
+
+const twSelector = clsx(
+  'flex',
+  'items-center',
+  'cursor-pointer',
+)
+const twSelectorLabel = (additional) => clsx(
+  'text-sm',
+  'select-none',
+  additional,
+)
 
 export const InputSimpleSelector = (props) => {
   const {
@@ -60,12 +72,22 @@ export const InputSimpleSelector = (props) => {
 
   return (
     <div id={id} className={`relative ${className}`}>
-      <div className='flex items-center cursor-pointer' onClick={toggleSelector}>
-        <Image src={currentSelected.src} alt='selector' width={options.selectedImageWidth} height={options.selectedImageHeight} />
+      <div className={twSelector} onClick={toggleSelector}>
+        <Image
+          src={currentSelected.src}
+          alt='selector'
+          width={options.selectedImageWidth}
+          height={options.selectedImageHeight}
+        />
 
         <span className={`${options.selectedLabelClass} select-none`}>{currentSelected.label}</span>
 
-        <Image src={IconArrow} alt='@icon/arrow.png' width={options.arrowWidth} height={options.arrowHeight} />
+        <Image
+          src={IconArrow}
+          alt='@icon/arrow.png'
+          width={options.arrowWidth}
+          height={options.arrowHeight}
+        />
       </div>
 
       <div className={`z-10 ${options.menuClass} ${additionalClass}`}>
@@ -86,8 +108,15 @@ export const InputSimpleSelector = (props) => {
                       className={`${options.itemClass} ${border}`}
                       onClick={() => handleClickItem(item)}
                     >
-                      {item.src && <Image src={item.src} alt={item.alt} width={options.itemImageWidth} height={options.itemImageHeight} />}
-                      <span className={`text-sm select-none ${item.src && 'ml-2 mr-2'}`}>{item.label}</span>
+                      {item.src && (
+                        <Image
+                          src={item.src}
+                          alt={item.alt}
+                          width={options.itemImageWidth}
+                          height={options.itemImageHeight}
+                        />
+                      )}
+                      <span className={twSelectorLabel(item.src && 'ml-2 mr-2')}>{item.label}</span>
                     </li>
                   </div>
                 </Link>
@@ -98,15 +127,26 @@ export const InputSimpleSelector = (props) => {
                   className={`${options.itemClass} ${border}`}
                   onClick={() => handleClickItem(item)}
                 >
-                  {item.src && <Image src={item.src} alt={item.alt} width={options.itemImageWidth} height={options.itemImageHeight} />}
-                  <span className={`text-sm select-none ${item.src && 'ml-2 mr-2'}`}>{item.label}</span>
+                  {item.src && (
+                    <Image
+                      src={item.src}
+                      alt={item.alt}
+                      width={options.itemImageWidth}
+                      height={options.itemImageHeight}
+                    />
+                  )}
+                  <span className={twSelectorLabel(item.src && 'ml-2 mr-2')}>{item.label}</span>
                 </li>
               )
           })}
         </ul>
       </div>
 
-      <TriangleShape additionalClass={`z-[15] ${additionalClass}`} topPx={options.TriangleTopPx} leftPx={options.TriangleLeftPx} />
+      <TriangleShape
+        additionalClass={`z-[15] ${additionalClass}`}
+        topPx={options.TriangleTopPx}
+        leftPx={options.TriangleLeftPx}
+      />
     </div>
   )
 }
