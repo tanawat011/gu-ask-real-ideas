@@ -1,10 +1,47 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons'
+import clsx from 'clsx'
 import Link from 'next/link'
 import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
 import { setMenuSelectedIndexes } from '@redux/baseSlice'
+
+const twWrapItem = (additional) => clsx(
+  'transition-all',
+  'ease-out',
+  'duration-300',
+  additional,
+)
+const twItem = (additional) => clsx(
+  'flex',
+  'h-10',
+  'pl-5',
+  'items-center',
+  'cursor-pointer',
+  'hover:text-orange',
+  'transition-all',
+  'ease-out',
+  'duration-300',
+  'relative',
+  additional,
+)
+const twWrapArrow = (additional) => clsx('absolute', '-left-1', additional)
+const twArrow = (additional) => clsx(
+  'transition-all',
+  'ease-out',
+  'duration-300',
+  additional,
+)
+const twItemIcon = () => clsx('w-5', 'h-5')
+const twItemLabel = (additional) => clsx('text-sm', 'select-none', additional)
+const twWrapChildrenItem = (additional) => clsx(
+  'transition-all',
+  'ease-out',
+  'duration-300',
+  'overflow-hidden',
+  additional,
+)
 
 export const SidebarMenuItem = (props) => {
   const {
@@ -12,6 +49,7 @@ export const SidebarMenuItem = (props) => {
     index,
     onClick = () => { },
     parentIndexes = [],
+    parentPath = '',
     isChild,
     setMenuItemHeightOfParent = () => { },
   } = props
@@ -20,8 +58,9 @@ export const SidebarMenuItem = (props) => {
   const storeIndexes = useSelector(state => state.base.sidebarMenuSelectedIndexes)
 
   const [indexes] = useState([...parentIndexes, index])
+  const [path] = useState(parentPath + (item.href || ''))
   const [menuItem, setMenuItem] = useState({ ...item, isSelected: false, isExpended: false })
-  const [wrapChildrenHeight, setWrapChildrenHeight] = useState(`sidebar-menu-item-h-${menuItem.children?.length || 0}`)
+  const [wrapChildrenHeight, setWrapChildrenHeight] = useState(menuItem.children?.length || 0)
 
   const handleClickItem = () => {
     const isSelected = !menuItem.isSelected
@@ -40,38 +79,39 @@ export const SidebarMenuItem = (props) => {
     }
   }
 
-  const handleItemIsChild = () => isChild ? 'ml-14' : 'ml-5'
-  const handleLabelIsChild = () => isChild ? 'ml-3' : 'ml-5'
   const handleHeightMenuItem = (isExpended, childItem) => {
-    let classHeight = 'sidebar-menu-item-h-'
     const height = childItem.children?.length || 0
-    const wrapHeight = +wrapChildrenHeight[wrapChildrenHeight.length - 1]
 
     if (isExpended) {
-      setWrapChildrenHeight(classHeight + (wrapHeight + height))
+      setWrapChildrenHeight(wrapChildrenHeight + height)
     } else {
-      setWrapChildrenHeight(classHeight + (wrapHeight - height))
+      setWrapChildrenHeight(wrapChildrenHeight - height)
     }
   }
 
+  const handleItemIsChild = () => isChild ? 'ml-14' : 'ml-5'
+  const handleLabelIsChild = () => isChild ? 'ml-3' : 'ml-5'
+  const handleWrapChildrenItemClass = `sidebar-menu-item-h-${wrapChildrenHeight}`
+  const twWrapItemClass = twWrapItem([storeIndexes === indexes && 'bg-anchor'])
+  const twItemClass = twItem([handleItemIsChild(), storeIndexes === indexes && 'text-orange'])
+  const twWrapArrowClass = twWrapArrow([indexes.length === 2 && 'opacity-50'])
+  const twArrowClass = twArrow([menuItem.isExpended && 'rotate-180'])
+  const twItemIconClass = twItemIcon()
+  const twItemLabelClass = twItemLabel([handleLabelIsChild()])
+  const twWrapChildrenItemClass = twWrapChildrenItem(menuItem.isExpended ? handleWrapChildrenItemClass : 'h-0')
+
   const RenderContent = () => (
-    <div
-      className={`flex h-10 pl-5 items-center cursor-pointer hover:text-orange transition-all ease-out duration-300 relative ${handleItemIsChild()} ${storeIndexes === indexes && 'text-orange'}`}
-      onClick={handleClickItem}
-    >
+    <div className={twItemClass} onClick={handleClickItem}>
       {menuItem.children && indexes.length < 3 && (
-        <div className={`absolute -left-1 ${indexes.length === 2 && 'opacity-50'}`}>
-          <FontAwesomeIcon
-            className={`transition-all ease-out duration-300 ${menuItem.isExpended && 'rotate-180'}`}
-            icon={faChevronDown} size='xs'
-          />
+        <div className={twWrapArrowClass}>
+          <FontAwesomeIcon className={twArrowClass} icon={faChevronDown} size='xs' />
         </div>
       )}
 
       {indexes.length < 3
         ? (
           <div>
-            <FontAwesomeIcon className='w-5 h-5' icon={menuItem.icon} size='lg' />
+            <FontAwesomeIcon className={twItemIconClass} icon={menuItem.icon} size='lg' />
           </div>
         )
         : (
@@ -80,7 +120,7 @@ export const SidebarMenuItem = (props) => {
       }
 
       <span
-        className={`text-sm select-none ${handleLabelIsChild()}`}
+        className={twItemLabelClass}
       >
         {menuItem.label}
       </span>
@@ -88,13 +128,13 @@ export const SidebarMenuItem = (props) => {
   )
 
   return (
-    <li className={`transition-all ease-out duration-300 ${storeIndexes === indexes && 'bg-anchor'}`}>
-      {!menuItem.href
+    <li className={twWrapItemClass}>
+      {!menuItem.href || menuItem.children
         ? <RenderContent />
         : (
           <Link
             passHref
-            href={menuItem.href}
+            href={path}
           >
             <div>
               <RenderContent />
@@ -104,11 +144,12 @@ export const SidebarMenuItem = (props) => {
       }
 
       {menuItem.children && indexes.length < 3 && (
-        <ul className={`transition-all ease-out duration-300 overflow-hidden ${menuItem.isExpended ? `${wrapChildrenHeight}` : 'h-0'}`}>
+        <ul className={twWrapChildrenItemClass}>
           {menuItem.children.map((child, j) => (
             <SidebarMenuItem
               key={child.label + index + j}
               parentIndexes={indexes}
+              parentPath={path}
               item={child}
               index={j}
               onClick={child.onClick}

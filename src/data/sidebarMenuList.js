@@ -8,6 +8,118 @@ import {
   faBook,
 } from '@fortawesome/free-solid-svg-icons'
 
+const Components = [
+  {
+    label: 'Components',
+  },
+  {
+    label: 'Input',
+    icon: faBook,
+    href: '/component',
+    children: [
+      {
+        label: 'AutoComplete',
+        icon: faBook,
+        href: '/grid',
+      },
+      {
+        label: 'Button',
+        icon: faBook,
+        href: '/grid',
+      },
+      {
+        label: 'Checkbox',
+        icon: faBook,
+        href: '/grid',
+      },
+      {
+        label: 'ColorPicker',
+        icon: faBook,
+        href: '/grid',
+      },
+      {
+        label: 'DatePicker',
+        icon: faBook,
+        href: '/grid',
+      },
+      {
+        label: 'Grid',
+        icon: faBook,
+        href: '/grid',
+      },
+      {
+        label: 'TextInput',
+        icon: faBook,
+        href: '/grid',
+      },
+      {
+        label: 'Selector',
+        icon: faBook,
+        href: '/grid',
+      },
+      {
+        label: 'Radio',
+        icon: faBook,
+        href: '/grid',
+      },
+      {
+        label: 'Slider',
+        icon: faBook,
+        href: '/grid',
+      },
+      {
+        label: 'Switch',
+        icon: faBook,
+        href: '/grid',
+      },
+      {
+        label: 'TimePicker',
+        icon: faBook,
+        href: '/grid',
+      },
+      {
+        label: 'Upload',
+        icon: faBook,
+        href: '/grid',
+      },
+    ],
+  },
+  {
+    label: 'Data Display',
+    icon: faBook,
+    children: [
+      {
+        label: 'Card',
+        icon: faBook,
+      },
+    ],
+  },
+  {
+    label: 'Feedback',
+    icon: faBook,
+    children: [
+      {
+        label: 'Alert',
+        icon: faBook,
+      },
+      {
+        label: 'Modal',
+        icon: faBook,
+      },
+    ],
+  },
+  {
+    label: 'Table',
+    icon: faBook,
+    children: [],
+  },
+  {
+    label: 'Other',
+    icon: faBook,
+    children: [],
+  },
+]
+
 const Apps = [
   {
     label: 'Apps',
@@ -115,26 +227,27 @@ export const sidebarMenuList = [
   {
     label: 'Dashboard',
     icon: faDashboard,
+    href: '/dashboard',
     children: [
       {
         label: 'Main',
         icon: faDashboard,
-        href: '/dashboard'
+        href: '/'
       },
       {
         label: 'Crypto',
         icon: faDashboard,
-        href: '/dashboard/crypto'
+        href: '/crypto'
       },
       {
         label: 'Stock',
         icon: faDashboard,
-        href: '/dashboard/stock'
+        href: '/stock'
       },
       {
         label: 'Wallet',
         icon: faDashboard,
-        href: '/dashboard/wallet'
+        href: '/wallet'
       },
     ],
   },
@@ -148,6 +261,7 @@ export const sidebarMenuList = [
     icon: faDashboard,
     href: '/contact',
   },
+  ...Components,
   ...Apps,
   ...ContainerLayout,
   ...Docs,
