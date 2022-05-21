@@ -6,6 +6,7 @@ export const FreeSpaceLayout = ({ children }) => {
     <>
       <Head>
         <title>Login GuAskReal</title>
+
         <meta name='viewport' content='initial-scale=1.0, width=device-width' />
       </Head>
 
