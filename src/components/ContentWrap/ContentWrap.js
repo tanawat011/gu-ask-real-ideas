@@ -1,9 +1,7 @@
 import clsx from 'clsx'
 
-const twBackdrop = clsx(
-  'flex',
-  'justify-center',
-  'items-center',
+const twContent = clsx(
+  'p-8',
   'w-full',
   'min-h-[calc(100vh-theme(height.footer)-theme(height.navbar))]',
   'bg-shadow',
@@ -12,7 +10,7 @@ const twBackdrop = clsx(
 export const ContentWrap = ({ children }) => {
   return (
     <>
-      <div className={twBackdrop}>
+      <div className={twContent}>
         {children}
       </div>
     </>

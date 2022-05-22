@@ -1,7 +1,6 @@
 import Head from 'next/head'
 
 export const FreeSpaceLayout = ({ children }) => {
-
   return (
     <>
       <Head>

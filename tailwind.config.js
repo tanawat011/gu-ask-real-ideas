@@ -41,6 +41,7 @@ module.exports = {
         lead: '#434f5a',
         anchor: '#4b545c',
         slate: '#4e5c69',
+        coin: '#55606A',
         fossil: '#a1a1a1',
         smoke: '#d9d9d9',
       },

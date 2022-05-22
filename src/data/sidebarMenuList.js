@@ -131,22 +131,31 @@ const Apps = [
   {
     label: 'Calculate',
     icon: faCalculator,
+    href: '/calculate',
     children: [
       {
         label: 'Calculator',
         icon: faCalculator,
-        href: '/calculate',
+        href: '/',
       },
       {
         label: 'Profit/Loss',
         icon: faDashboard,
-        href: '/calculate/profit-loss'
+        href: '/profit-loss'
       },
     ],
   },
   {
     label: 'Convertor',
     icon: faCalculator,
+    href: '/convertor',
+    children: [
+      {
+        label: 'Arabic and Roman',
+        icon: faCalculator,
+        href: '/arabic-and-roman',
+      },
+    ],
   },
 ]
 
