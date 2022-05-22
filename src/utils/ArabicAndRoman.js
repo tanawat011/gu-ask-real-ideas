@@ -1,6 +1,6 @@
 import { romanCharacter } from '@data/romanCharacter'
 
-export const ArabicToRoman = (_arabic) => {
+export const ArabicToRoman = (_arabic = 0) => {
   const romanChars = [...romanCharacter].reverse()
 
   const numbArr = `${_arabic}`

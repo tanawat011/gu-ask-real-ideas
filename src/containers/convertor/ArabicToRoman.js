@@ -17,10 +17,10 @@ export const ArabicToRoman = () => {
   const [roman, setRoman] = useState('')
   const [romanFromArabic, setRomanFromArabic] = useState('-')
 
-  const onChangeInputArabic = (value) => {
+  const onChangeInputArabic = (value = 0) => {
     if (value) {
-      setArabic(+value)
-      handleArabicToRoman(+value)
+      setArabic(value)
+      handleArabicToRoman(value)
 
       return
     }
@@ -29,7 +29,7 @@ export const ArabicToRoman = () => {
     setRomanFromArabic('-')
   }
 
-  const handleArabicToRoman = (_arabic) => {
+  const handleArabicToRoman = (_arabic = 0) => {
     const result = utils.ArabicToRoman(_arabic)
     setRomanFromArabic(result !== '0' && result)
   }
