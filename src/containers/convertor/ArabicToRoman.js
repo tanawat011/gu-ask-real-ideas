@@ -76,6 +76,8 @@ export const ArabicToRoman = () => {
           <span className=''>
             Result : {romanFromArabic}
           </span>
+          <br />
+          <pre></pre>
         </CardBody>
       </Card>
 
