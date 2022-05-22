@@ -18,6 +18,7 @@
       "@locale/*": ["src/locales/*"],
       "@redux/*": ["src/redux/*"],
       "@style/*": ["src/styles/*"],
+      "@utils": ["src/utils"],
       "@util/*": ["src/utils/*"]
     }
   }

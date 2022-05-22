@@ -18,13 +18,24 @@ export const TextInput = ({
   placeholder = 'input here',
   value = '',
   onChange = () => { },
+  number = false,
 }) => {
+  const handleOnChange = (e) => {
+    let value = e.target.value
+
+    if (number) {
+      value = +e.target.value || +e.target.value.slice(0, -1)
+    }
+
+    onChange(value)
+  }
+
   return (
     <input
       className={twTextInput(className)}
       placeholder={placeholder}
       value={value}
-      onChange={(e) => onChange(e.target.value)}
+      onChange={handleOnChange}
     />
   )
 }
