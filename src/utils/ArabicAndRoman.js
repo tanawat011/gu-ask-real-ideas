@@ -2,41 +2,34 @@ import { romanCharacter } from '@data/romanCharacter'
 
 export const ArabicToRoman = (_arabic = 0) => {
   const romanChars = [...romanCharacter].reverse()
+  const result = ''
+  const strArabic = `${_arabic}`
 
-  const numbArr = `${_arabic}`
+  strArabic
     .split('')
-    .reverse()
-    .map((char, index) => {
-      const withZero = (n) => +(n + '0'.repeat(index))
-      if (char === '4') return [withZero('1'), withZero('5')]
-      if (char === '9') return [withZero('1'), withZero('10')]
+    .forEach((char, index) => {
+      const withZero = (n) => +(n + '0'.repeat((strArabic.length - 1) - index))
 
-      return withZero(char)
-    })
-    .reverse()
+      const numbArr = [withZero(char)]
+      if (char === '4') numbArr = [withZero('1'), withZero('5')]
+      if (char === '9') numbArr = [withZero('1'), withZero('10')]
 
-  numbArr.forEach((numb, i) => {
-    const numbs = typeof numb === 'number' ? [numb] : numb
-    let tempResult = ''
+      numbArr.forEach(n => {
+        let tempNumb = n
 
-    numbs.forEach(n => {
-      let tempNumb = n
+        if (tempNumb) {
+          romanChars.forEach(rChar => {
+            const numbR = +rChar.value
+            const mathF = Math.floor(tempNumb / numbR)
 
-      if (tempNumb) {
-        romanChars.forEach(rChar => {
-          const numbR = +rChar.value
-          const mathF = Math.floor(tempNumb / numbR)
-
-          if (mathF > 0) {
-            tempResult += rChar.label.repeat(mathF)
-            tempNumb -= numbR * mathF
-          }
-        })
-      }
+            if (mathF > 0) {
+              result += rChar.label.repeat(mathF)
+              tempNumb -= numbR * mathF
+            }
+          })
+        }
+      })
     })
 
-    numbArr[i] = tempResult
-  })
-
-  return numbArr.join('')
+  return result
 }
