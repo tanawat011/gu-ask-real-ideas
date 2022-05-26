@@ -1,7 +1,7 @@
-import { ArabicToRoman } from './ArabicAndRoman'
+import * as ArabicAndRoman from './ArabicAndRoman'
 
 const utils = {
-  ArabicToRoman,
+  ...ArabicAndRoman,
 }
 
 export default utils

@@ -1,11 +1,11 @@
 import { DefaultLayout } from '@root/src/layouts/DefaultLayout'
-import { ArabicToRoman as Container } from '@container/convertor/ArabicToRoman'
+import { ArabicAndRoman as Container } from '@root/src/containers/convertor/ArabicAndRoman'
 
-export default function ArabicToRoman () {
+export default function ArabicAndRoman () {
   return (<Container />)
 }
 
-ArabicToRoman.getLayout = function getLayout (page) {
+ArabicAndRoman.getLayout = function getLayout (page) {
   return (
     <DefaultLayout>
       {page}

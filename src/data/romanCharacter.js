@@ -1,3 +1,16 @@
+export const romanTableHeaders = [
+  {
+    label: 'ROMAN',
+    value: 'label',
+    className: 'w-24',
+  },
+  {
+    label: 'ARABIC',
+    value: 'value',
+    className: 'w-24',
+  },
+]
+
 export const romanCharacter = [
   {
     label: 'I',

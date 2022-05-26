@@ -5,7 +5,7 @@ const twFooter = clsx(
   'justify-center',
   'items-center',
   'w-full',
-  'h-footer',
+  'min-h-[theme(height.footer)]',
   'bg-shadow',
   'border-solid',
   'border-t-[1px]',

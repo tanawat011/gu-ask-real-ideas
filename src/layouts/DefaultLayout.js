@@ -29,7 +29,9 @@ const twColFull = clsx(
   'flex',
   'flex-col',
   'w-full',
-  'h-full',
+  'min-h-full',
+  'max-h-[calc(100vh-theme(height.navbar))]',
+  'bg-shadow',
 )
 
 export const DefaultLayout = ({ children }) => {
@@ -56,7 +58,7 @@ export const DefaultLayout = ({ children }) => {
             <SidebarFooter />
           </div>
 
-          <div className={twColFull}>
+          <div className={twColFull} style={{ overflowY: 'overlay' }}>
             <ContentWrap>
               {children}
             </ContentWrap>
