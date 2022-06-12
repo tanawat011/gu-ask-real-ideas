@@ -2,7 +2,6 @@ import clsx from 'clsx'
 
 const twContainerWrapper = clsx(
   'flex',
-  'flex-wrap',
   '-m-4',
 )
 

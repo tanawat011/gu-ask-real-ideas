@@ -19,6 +19,7 @@ export const TextInput = ({
   value = '',
   onChange = () => { },
   number = false,
+  pattern,
 }) => {
   const handleOnChange = (e) => {
     let value = e.target.value
@@ -36,6 +37,7 @@ export const TextInput = ({
       placeholder={placeholder}
       value={value}
       onChange={handleOnChange}
+      pattern={pattern}
     />
   )
 }

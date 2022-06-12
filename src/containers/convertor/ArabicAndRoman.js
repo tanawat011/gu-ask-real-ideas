@@ -1,8 +1,8 @@
-import clsx from 'clsx'
 import { useState } from 'react'
 
 import { ContainerWrapper } from '@component/ContainerWrapper/ContainerWrapper'
 import { Card, CardBody, CardHeader } from '@component/Card/Card'
+import { CardExample } from '@component/Card/CardExample'
 import { DisplayBlock } from '@component/DisplayBlock/DisplayBlock'
 import { DisplayCodeBlock } from '@component/DisplayCodeBlock/DisplayCodeBlock'
 import { TextInput } from '@component/InputTextInput/TextInput'
@@ -11,13 +11,10 @@ import { ListDiscStep } from '@component/ListDiscStep/ListDiscStep'
 import { romanCharacter, romanTableHeaders } from '@data/romanCharacter'
 import utils from '@utils'
 
-const twWrapContainer = clsx(
-  ''
-)
-
 export const ArabicAndRoman = () => {
   const [arabic, setArabic] = useState()
   const [arabicFromRoman, setArabicFromRoman] = useState('')
+  const [arabicFromRomanDuration, setArabicFromRomanDuration] = useState(0)
   const [roman, setRoman] = useState('')
   const [romanFromArabic, setRomanFromArabic] = useState('')
   const [romanFromArabicDuration, setRomanFromArabicDuration] = useState(0)
@@ -35,60 +32,70 @@ export const ArabicAndRoman = () => {
     setRomanFromArabicDuration(0)
   }
 
-  const handleArabicToRoman = (_arabic = 0) => {
+  const handleArabicToRoman = (arabic = 0) => {
     const start = performance.now()
-    const result = utils.ArabicToRoman(_arabic)
+    const result = utils.ArabicToRoman(arabic)
     const duration = (performance.now() - start) / 1000
 
     setRomanFromArabic(result !== '0' && result)
     setRomanFromArabicDuration(duration.toFixed(5))
   }
 
-  const handleRomanToArabic = () => { }
+  const onChangeInputRoman = (value = '') => {
+    if (!+value) {
+      setRoman(value.toUpperCase())
+      handleRomanToArabic(value.toUpperCase())
+
+      return
+    }
+
+    setRoman('')
+    setArabicFromRoman('')
+    setArabicFromRomanDuration(0)
+  }
+
+  const handleRomanToArabic = (roman = '') => {
+    const start = performance.now()
+    const result = utils.RomanToArabic(roman)
+    const duration = (performance.now() - start) / 1000
+
+    setArabicFromRoman(result !== '0' && result)
+    setArabicFromRomanDuration(duration.toFixed(5))
+  }
 
   return (
     <ContainerWrapper>
-      <Card className='w-52'>
-        <CardHeader>ROMAN CHARACTER</CardHeader>
-        <CardBody>
-          <Table headers={romanTableHeaders} data={romanCharacter} />
-        </CardBody>
-      </Card>
+      <div>
+        <Card className='w-52'>
+          <CardHeader>ROMAN CHARACTER</CardHeader>
+          <CardBody>
+            <Table headers={romanTableHeaders} data={romanCharacter} />
+          </CardBody>
+        </Card>
+      </div>
 
-      <Card autoWidth className='flex-grow'>
-        <CardHeader>ARABIC TO ROMAN</CardHeader>
-        <CardBody>
-          <TextInput number value={arabic} onChange={onChangeInputArabic} />
-          <br />
-          <span className=''>
-            Result : {romanFromArabic && <DisplayBlock text={romanFromArabic} />}
-          </span>
-          <span className='mt-2'>Duration : <DisplayBlock text={`${romanFromArabicDuration}s`} /></span>
+      <div className='flex w-full'>
+        <CardExample
+          header='ARABIC TO ROMAN'
+          number
+          value={arabic}
+          onChange={onChangeInputArabic}
+          result={romanFromArabic}
+          duration={romanFromArabicDuration}
+          step={utils.ArabicToRomanStep}
+          code={utils.ArabicToRomanCode}
+        />
 
-          <br />
-
-          <span>Step : </span>
-          <ListDiscStep list={utils.ArabicToRomanStep} />
-
-          <ul className='list-disc ml-5'>
-            <li className='mt-2 text-xs'>
-              <span>ex : </span>
-              <DisplayCodeBlock code={utils.ArabicToRomanString} />
-            </li>
-          </ul>
-        </CardBody>
-      </Card>
-
-      <Card autoWidth className='flex-grow'>
-        <CardHeader>ROMAN TO ARABIC</CardHeader>
-        <CardBody>
-          <TextInput number value={roman} onChange={setRoman} />
-          <br />
-          <span className=''>
-            Result : {arabicFromRoman}
-          </span>
-        </CardBody>
-      </Card>
+        <CardExample
+          header='ROMAN TO ARABIC'
+          value={roman}
+          onChange={onChangeInputRoman}
+          result={arabicFromRoman}
+          duration={arabicFromRomanDuration}
+          step={utils.RomanToArabicStep}
+          code={utils.RomanToArabicCode}
+        />
+      </div>
     </ContainerWrapper>
   )
 }
