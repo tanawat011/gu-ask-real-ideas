@@ -1,7 +1,7 @@
 import { romanCharacter } from '@data/romanCharacter'
 
 export const ArabicToRoman = (arabic = 0) => {
-  const romanChars = [...romanCharacter].reverse()
+  const romanChars = [...romanCharacter].filter(r => !r.isAdvance).reverse()
   const result = ''
   const strArabic = `${arabic}`
 
@@ -92,68 +92,3 @@ export const ArabicToRomanCode = `
     })
 
 `
-
-export const RomanToArabic = (roman = '') => {
-  const romanChars = [...romanCharacter]
-  let result = 0
-
-  roman.split('').forEach((s, i) => {
-    romanChars.forEach((rChar, j) => {
-      if (s === rChar.label) {
-        const isNotFirst = i > 0
-        const prevVal = +romanChars.find(r => r.label === roman[i - 1])?.value || 0
-        const currVal = +rChar.value
-        const isCurrOTPrev = isNotFirst && currVal > prevVal
-
-        if (isCurrOTPrev) {
-          console.log('xxx', currVal, prevVal, currVal - prevVal)
-          const val = currVal - prevVal // 100 - 10
-
-          console.log('ccc', result, val)
-
-          // 10 = 90
-          if (val >= result) result = val
-          else result = result - val
-
-          return
-        }
-
-        result += currVal//10
-      }
-    })
-  })
-
-  return `${result}`
-
-  // strArabic
-  //   .split('')
-  //   .forEach((char, index) => {
-  //     const withZero = (n) => +(n + '0'.repeat((strArabic.length - 1) - index))
-
-  //     const numbArr = [withZero(char)]
-  //     if (char === '4') numbArr = [withZero('1'), withZero('5')]
-  //     if (char === '9') numbArr = [withZero('1'), withZero('10')]
-
-  //     numbArr.forEach(n => {
-  //       let tempNumb = n
-
-  //       if (tempNumb) {
-  //         romanChars.forEach(rChar => {
-  //           const numbR = +rChar.value
-  //           const mathF = Math.floor(tempNumb / numbR)
-
-  //           if (mathF > 0) {
-  //             result += rChar.label.repeat(mathF)
-  //             tempNumb -= numbR * mathF
-  //           }
-  //         })
-  //       }
-  //     })
-  //   })
-
-  // return result
-}
-
-export const RomanToArabicStep = []
-
-export const RomanToArabicCode = ''

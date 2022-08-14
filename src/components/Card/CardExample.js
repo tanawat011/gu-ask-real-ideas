@@ -18,10 +18,13 @@ export const CardExample = ({
     <CardHeader>{header}</CardHeader>
     <CardBody>
       <TextInput number={number} value={value} onChange={onChange} />
+
       <br />
+
       <span className=''>
         Result : {result && <DisplayBlock text={result} />}
       </span>
+
       <span className='mt-2'>Duration : <DisplayBlock text={`${duration}s`} /></span>
 
       <br />
